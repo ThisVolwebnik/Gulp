@@ -1,0 +1,33 @@
+{
+	"path": {
+		"src": {
+			"html": [
+				"./src/html/index.html",
+				"./src/html/layouts/*.html"
+			],
+			"style": "./src/assets/scss/style.scss",
+			"scripts": "./src/assets/js/*.js",
+			"fonts": "./src/assets/fonts/*.ttf",
+			"images": "./src/assets/img/**/*.*",
+			"imagesNoSvg": [
+				"./src/assets/img/**/*.*",
+				"!./src/assets/img/**/*.svg"
+			]
+		},
+		"dist": {
+			"distPath": "./dist",
+			"style": "./dist/assets/css",
+			"html": "./dist/",
+			"scripts": "./dist/assets/js/",
+			"fonts": "./dist/assets/fonts",
+			"images": "./dist/assets/img"
+		},
+		"watch": {
+			"style": "./src/assets/scss/**/*.scss",
+			"html": "./src/html/**/*.html",
+			"scripts": "./src/assets/js/**/*.js",
+			"fonts": "./src/assets/fonts/*.ttf",
+			"images": "./src/assets/img/**/*.*"
+		}
+	}
+}
