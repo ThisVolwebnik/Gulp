@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp",
+    "prod": "gulp --prod"
   },
   "keywords": [],
   "author": "",
@@ -34,7 +35,8 @@
     "gulp-webp": "^4.0.1",
     "sass": "^1.66.1",
     "style-loader": "^3.3.3",
-    "webpack-stream": "^7.0.0"
+    "webpack-stream": "^7.0.0",
+    "yargs": "^17.7.2"
   },
   "babel": {
     "presets": [

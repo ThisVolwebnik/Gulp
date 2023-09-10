@@ -5,6 +5,11 @@ const htmlmin = require('gulp-htmlmin');
 const dependents = require('gulp-dependents');
 const browserSync = require('browser-sync');
 const cached = require('gulp-cached');
+const yargs = require('yargs');
+const gulpIf = require('gulp-if');
+
+const argv = yargs.argv
+const prod = argv.prod
 
 const path = gulpConfig.path;
 
@@ -13,7 +18,7 @@ function html() {
 		.pipe(cached('html'))
 		.pipe(dependents())
 		.pipe(fileInclude())
-		.pipe(htmlmin({ collapseWhitespace: true }))
+		.pipe(gulpIf(prod, htmlmin({ collapseWhitespace: true })))
 		.pipe(dest(path.dist.html))
 		.on('end', browserSync.reload);
 };

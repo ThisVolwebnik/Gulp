@@ -7,6 +7,11 @@ const dependents = require('gulp-dependents');
 const gulpConfig = require('../gulpConfig.json');
 const browserSync = require('browser-sync');
 const cached = require('gulp-cached');
+const gulpIf = require('gulp-if');
+const yargs = require('yargs');
+
+const argv = yargs.argv
+const prod = argv.prod
 
 const path = gulpConfig.path;
 
@@ -15,11 +20,11 @@ function scss() {
 		.pipe(cached('scss'))
 		.pipe(dependents())
 		.pipe(maps.init())
-		.pipe(sass({ outputStyle: 'compressed' }))
-		.pipe(autoPrefixer({
+		.pipe(gulpIf(prod, sass({ outputStyle: 'compressed' }), sass()))
+		.pipe(gulpIf(prod, autoPrefixer({
 			grid: true,
 			flex: true
-		}))
+		})))
 		.pipe(maps.write())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(dest(path.dist.style))
